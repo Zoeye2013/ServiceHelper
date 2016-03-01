@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:orientation="vertical">
+ <RelativeLayout android:layout_width="fill_parent"
+  		android:layout_height="fill_parent">
+  		
+  		<TextView android:id="@+id/username_info"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:text="@string/username"
+  			android:layout_alignParentLeft="true"
+  			android:paddingLeft="5dp"
+  			android:paddingTop="10dp"></TextView>
+  		<TextView  android:id="@+id/account_name"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_toRightOf="@id/username_info"
+  			android:layout_alignBottom="@id/username_info"></TextView>
+  		
+  			
+  		<Button android:id="@+id/button_change_password"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:text="@string/button_change_password"
+  			android:layout_below="@id/account_name"
+  			android:layout_alignParentLeft="true"
+  			android:paddingLeft="5dp"
+  			android:layout_marginTop="20dp"></Button>
+  		<Button android:id="@+id/button_delete_account"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:text="@string/button_delete_account"
+  			android:layout_alignParentRight="true"
+  			android:paddingRight="5dp"
+  			android:enabled="false"
+  			android:layout_alignBottom="@id/button_change_password"></Button>
+  		
+  		<TextView android:id="@+id/warning_old_password"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_below="@id/button_change_password"
+  			android:layout_alignParentRight="true"
+  			android:paddingRight="5dp"
+  			android:visibility="invisible"></TextView>
+  		<TextView android:id="@+id/old_password"
+  			android:text="@string/old_password"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_toLeftOf="@id/warning_old_password"
+  			android:layout_alignParentLeft="true"
+  			android:layout_alignBottom="@id/warning_old_password"
+  			android:paddingLeft="5dp"
+  			android:visibility="invisible"></TextView>
+  		<EditText android:id="@+id/old_password_edit"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:layout_below="@id/warning_old_password"
+  			android:inputType="textPassword"
+  			android:visibility="invisible"></EditText>
+  		
+  		<TextView android:id="@+id/warning_new_password"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_below="@id/old_password_edit"
+  			android:layout_alignParentRight="true"
+  			android:paddingRight="5dp"
+  			android:visibility="invisible"></TextView>
+  		<TextView android:id="@+id/new_password"
+  			android:text="@string/new_password"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_toLeftOf="@id/warning_new_password"
+  			android:layout_alignParentLeft="true"
+  			android:layout_alignBottom="@id/warning_new_password"
+  			android:paddingLeft="5dp"
+  			android:visibility="invisible"></TextView>
+  		<EditText android:id="@+id/new_password_edit"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:layout_below="@id/warning_new_password"
+  			android:inputType="textPassword"
+  			android:visibility="invisible"></EditText>
+  			
+  		<TextView android:id="@+id/warning_re_new_password"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_below="@id/new_password_edit"
+  			android:layout_alignParentRight="true"
+  			android:paddingRight="5dp"
+  			android:visibility="invisible"></TextView>
+  		<TextView android:id="@+id/re_new_password"
+  			android:text="@string/re_new_password"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_toLeftOf="@id/warning_re_new_password"
+  			android:layout_alignParentLeft="true"
+  			android:layout_alignBottom="@id/warning_re_new_password"
+  			android:paddingLeft="5dp"
+  			android:visibility="invisible"></TextView>
+  		<EditText android:id="@+id/re_new_password_edit"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:layout_below="@id/warning_re_new_password"
+  			android:inputType="textPassword"
+  			android:visibility="invisible"></EditText>
+  		
+  		<Button android:id="@+id/btn_save_password_change"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:text="@string/button_save_pwd_change"
+  			android:layout_below="@id/re_new_password_edit"
+  			android:layout_alignParentRight="true"
+  			android:paddingRight="5dp"
+  			android:visibility="invisible"></Button>
+  </RelativeLayout>
+</LinearLayout>

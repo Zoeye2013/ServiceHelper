@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+ *  Open Source Software By Elinkeinoelämän Tutkimuslaitos (ETLA), Finland
+ *  Coding by Ye Zhang
+ *  
+ *  XML file for PingII(incoming) module
+ *  Flipper view of relevant phone call information 
+ *  Provides user ways to input notes for the phone call record
+ *  TextViews for presenting phone call basic information
+ *  EditTexts for accept user input
+ *
+-->
+
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content">
+  <!--  <TextView android:id="@+id/incoming_call_info_title"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:text="@string/incoming_call_info_title"
+  			android:paddingBottom="10dp"
+  			android:textSize="22dp"></TextView>-->
+  <TextView android:id="@+id/time"
+  			android:layout_alignParentLeft="true"
+  			android:paddingLeft="10dp"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:textSize="18dp"></TextView>
+  			<!-- android:layout_below="@id/incoming_call_info_title" -->
+  <TextView android:id="@+id/duration"
+  			android:layout_alignParentRight="true"
+  			android:paddingRight="10dp"
+  			android:layout_alignBottom="@id/time"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:textSize="18dp"></TextView>
+  <TextView android:id="@+id/phone_number"
+  			android:layout_alignParentLeft="true"
+  			android:paddingLeft="10dp"
+  			android:paddingTop="5dp"
+  			android:layout_below="@id/time"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:textSize="18dp"></TextView>
+  <TextView android:id="@+id/enter_note_instruction"
+  			android:layout_alignParentLeft="true"
+  			android:paddingLeft="10dp"
+  			android:paddingTop="10dp"
+  			android:layout_below="@id/phone_number"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:textSize="18dp"
+  			android:text="@string/enter_notes_instruction"></TextView>
+  <EditText android:id="@+id/enter_note_edit"
+  			android:layout_width="fill_parent"
+  			android:paddingLeft="10dp"
+  			android:paddingRight="10dp"
+  			android:lines="4"
+  			android:layout_height="wrap_content"
+  			android:layout_below="@id/enter_note_instruction"
+  			android:paddingBottom="10dp"
+  			android:text="Notes..."
+  			android:selectAllOnFocus="true"></EditText>
+  <Button android:id="@+id/save_note_btn"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_alignParentRight="true"
+  			android:layout_below="@id/enter_note_edit"
+  			android:text="@string/button_save_pwd_change"></Button>
+</RelativeLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+  
+  <Button android:id="@+id/synchronize_data_btn"
+  	android:layout_width="wrap_content"
+  	android:layout_height="wrap_content"
+  	android:text="@string/synchronize_btn"
+  	android:layout_alignParentBottom="true"
+  	android:layout_alignParentRight="true"></Button>
+  	
+  <LinearLayout android:id="@+id/linechart"
+  	android:orientation="horizontal"
+  	android:layout_width="fill_parent"
+  	android:layout_height="wrap_content"
+  	android:layout_alignParentTop="true"
+  	android:paddingTop="20dp"
+  	android:paddingBottom="10dp"
+  	android:layout_above="@id/synchronize_data_btn"></LinearLayout>
+  
+</RelativeLayout>

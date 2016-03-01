@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    <RelativeLayout android:id="@+id/info_layout"
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content">
+    	<TextView android:id="@+id/date_info"
+  			android:layout_alignParentLeft="true"
+  			android:paddingLeft="5dp"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"></TextView>
+    	<DigitalClock android:id="@+id/digital_clock"
+        	android:layout_width="wrap_content"
+       		android:layout_height="wrap_content"
+       		android:layout_alignParentRight="true"
+       		android:paddingRight="5dp"/>    
+    </RelativeLayout>
+    <TextView android:id="@+id/start_meeting_info"
+  			android:layout_centerHorizontal="true"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_below="@id/info_layout"
+  			android:paddingTop="50dp"
+  			android:textSize="24dp"></TextView>
+    <Chronometer android:id="@+id/timer"
+        android:paddingTop="30dp"
+        android:format="00:00:00"
+        android:layout_below="@id/start_meeting_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="60dp"
+        android:textColor="#ffff00"/>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_below="@id/timer"
+    	android:layout_centerHorizontal="true"
+    	android:paddingTop="50dp">
+    	<Button android:id="@+id/start_btn"
+  		    android:layout_width="wrap_content"
+  		    android:layout_height="wrap_content"
+  		    android:text="@string/start_btn"/>
+    	<Button android:id="@+id/pause_btn"
+  		    android:layout_width="wrap_content"
+  		    android:layout_height="wrap_content"
+  		    android:layout_toRightOf="@id/start_btn"
+  		    android:text="@string/pause_btn"/>
+    	<Button android:id="@+id/reset_btn"
+  		    android:layout_width="wrap_content"
+  		    android:layout_height="wrap_content"
+  		    android:layout_toRightOf="@id/pause_btn"
+  		    android:text="@string/reset_btn"/>
+    </RelativeLayout>
+</RelativeLayout>

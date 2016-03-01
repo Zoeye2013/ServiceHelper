@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+ *  Open Source Software By Elinkeinoelämän Tutkimuslaitos (ETLA), Finland
+ *  Coding by Ye Zhang
+ *  
+ *  XML file for PingII(incoming) module
+ *  Flipper view of irrelevant phone call information 
+ *  Provides user ways to record information like where else should caller call and notes
+ *  EditTexts for accept user input
+ *  TextView presents basic phone call information
+ *
+-->
+
+<RelativeLayout 
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content">
+  		<!--  <TextView android:id="@+id/irrelevant_call_title"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:text="@string/irrelevant_call_title"
+  			android:paddingBottom="10dp"
+  			android:textSize="22dp"></TextView>-->
+ 		<TextView android:id="@+id/caller_text"
+  			android:layout_alignParentLeft="true"
+  			android:paddingLeft="10dp"
+  			android:paddingTop="20dp"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:paddingBottom="10dp"
+  			android:text="@string/question_title_caller"></TextView>
+  			<!--  android:layout_below="@id/irrelevant_call_title"-->
+  		<EditText android:id="@+id/caller_edit"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:layout_toRightOf="@id/caller_text"
+  			android:layout_alignBottom="@id/caller_text"
+  			android:paddingLeft="10dp"
+  			android:paddingRight="10dp"
+  			android:selectAllOnFocus="true"></EditText>
+  		<TextView android:id="@+id/where_to_call_text"
+  			android:layout_alignParentLeft="true"
+  			android:paddingLeft="10dp"
+  			android:layout_below="@id/caller_edit"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:text="@string/where_to_call_text"></TextView>
+  		<EditText android:id="@+id/where_to_call_edit"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:layout_below="@id/where_to_call_text"
+  			android:paddingLeft="10dp"
+  			android:paddingRight="10dp"
+  			android:paddingBottom="10dp"
+  			android:selectAllOnFocus="true"></EditText>
+  		<TextView android:id="@+id/note_text"
+  			android:layout_alignParentLeft="true"
+  			android:paddingLeft="10dp"
+  			android:layout_below="@id/where_to_call_edit"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:text="@string/enter_notes_instruction"></TextView>
+  		<EditText android:id="@+id/note_edit"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:lines="3"
+  			android:layout_below="@id/note_text"
+  			android:paddingLeft="10dp"
+  			android:paddingRight="10dp"
+  			android:paddingBottom="10dp"
+  			android:selectAllOnFocus="true"></EditText>
+  		<Button android:id="@+id/save_btn"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_below="@id/note_edit"
+  			android:layout_alignParentRight="true"
+  			android:text="@string/button_save_pwd_change"></Button>
+  		<TextView android:id="@+id/call_info"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_alignBottom="@id/save_btn"
+  			android:layout_alignParentLeft="true"
+  			android:textSize="18dp"
+  			android:paddingLeft="10dp"></TextView>
+</RelativeLayout>

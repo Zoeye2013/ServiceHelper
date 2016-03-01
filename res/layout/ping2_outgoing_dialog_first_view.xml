@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+ *  Open Source Software By Elinkeinoelämän Tutkimuslaitos (ETLA), Finland
+ *  Coding by Ye Zhang
+ *  
+ *  XML file for PingII(outgoing) module
+ *  First Flipper view after user made an outgoing call 
+ *  Present basic phone call info to user
+ *  and ask user to choose they type of phone call:
+ *  Report call, or Emergency call, or Call for checking continuum treatment
+-->
+
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:orientation="vertical">
+  <RelativeLayout android:layout_width="fill_parent"
+ 			android:layout_height="wrap_content">
+      <TextView android:id="@+id/begin_time"
+  			android:layout_alignParentLeft="true"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:textSize="18dp"></TextView>
+      <TextView android:id="@+id/end_time"
+  			android:layout_alignParentLeft="true"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_below="@id/begin_time"
+  			android:textSize="18dp"></TextView>
+      <TextView android:id="@+id/waiting_time_text"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_alignParentLeft="true"
+  			android:layout_below="@id/end_time"
+  			android:textSize="18dp"></TextView>
+  	  <TextView android:id="@+id/duration"
+  			android:layout_alignParentRight="true"
+  			android:paddingRight="5dp"
+  			android:layout_alignBottom="@id/waiting_time_text"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:textSize="18dp"></TextView>
+  	  <TextView android:id="@+id/phone_number"
+  			android:layout_alignParentLeft="true"
+  			android:paddingTop="5dp"
+  			android:layout_below="@id/waiting_time_text"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:textSize="18dp"></TextView>
+  	  <TextView android:id="@+id/choose_call_type_instruction"
+  			android:layout_alignParentLeft="true"
+  			android:paddingTop="10dp"
+  			android:layout_below="@id/phone_number"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:textSize="18dp"
+  			android:text="@string/choose_call_type_instruction"></TextView>
+  </RelativeLayout>
+  <LinearLayout android:layout_width="fill_parent"
+      		android:layout_height="1dp"
+      		android:background="@android:color/white"> 
+  </LinearLayout>
+  <RadioGroup android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:orientation="vertical">
+  	  <RadioButton android:id="@+id/report_call_btn"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:text="@string/call_type_report"></RadioButton>
+  	  <RadioButton android:id="@+id/emergency_call_btn"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:text="@string/call_type_emergency"></RadioButton>
+  	  <RadioButton android:id="@+id/continuum_call_btn"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:text="@string/call_type_continuum"></RadioButton>
+  	  <RadioButton android:id="@+id/other_call_btn"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:text="@string/call_type_other"></RadioButton>
+  </RadioGroup>
+  <LinearLayout android:layout_width="fill_parent"
+      		android:layout_height="1dp"
+      		android:background="@android:color/white"> 
+  </LinearLayout>
+  <RelativeLayout android:layout_width="fill_parent"
+      	android:layout_height="wrap_content">
+      <Button android:id="@+id/record_later_btn"
+  		android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:layout_alignParentRight="true"
+  		android:text="@string/record_later_btn_text"></Button>
+  </RelativeLayout>
+</LinearLayout>

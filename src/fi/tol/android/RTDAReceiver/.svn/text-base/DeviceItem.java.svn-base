@@ -1,0 +1,140 @@
+package fi.tol.android.RTDAReceiver;
+
+import java.util.ArrayList;
+
+import android.bluetooth.BluetoothDevice;
+
+public class DeviceItem 
+{
+	private int btDeviceNo;
+	private BluetoothDevice btDevice;
+	private boolean isAllowedDevice;
+	private boolean isUselessDevice;
+	private boolean isCurrentDevice;
+	private String enter_time;
+	private String leave_time;
+    private boolean inScope;
+    private int btMajorDeviceClass;
+    private short btRSSI_Max = 0;//5.23
+    private short btRSSI_Min = 0;//5.23
+    private double btAverage_Distance = 0;//5.23
+    private ArrayList<Integer> btRSSIValues = new ArrayList<Integer> ();//5.23
+    
+    public void setBTdeviceNo(int no)
+    {
+    	btDeviceNo = no;
+    }
+    public void setBluetoothDevice(BluetoothDevice device)
+    {
+    	btDevice = device;
+    }
+    public void setIsUseless(boolean isUseless)
+    {
+    	isUselessDevice = isUseless;
+    }
+    public void setIsAllowed(boolean isAllowed)
+    {
+    	isAllowedDevice = isAllowed;
+    }
+    public void setIsCurrent(boolean isCurrent)
+    {
+    	isCurrentDevice = isCurrent;
+    }
+    public void setIsInScope(boolean isInScope)
+    {
+    	inScope = isInScope;
+    }
+    public void setEnter_time(String eTime)
+    {
+    	enter_time = eTime;
+    }
+    public void setLeave_time(String lTime)
+    {
+    	leave_time = lTime;
+    }
+    public void setBTMajorDeviceClass(int majorClass)
+    {
+    	btMajorDeviceClass = majorClass;
+    }
+    public void addRSSIValues(short signal) //5.23
+    {
+    	if(btRSSIValues.size() < 1)
+    	{
+    		btRSSI_Max = signal;
+    		btRSSI_Min = signal;
+    	}
+    	else
+    	{
+    		if(signal > btRSSI_Max)
+    			btRSSI_Max = signal;
+    		else if(signal < btRSSI_Min)
+    			btRSSI_Min = signal;
+    	}
+    	btRSSIValues.add(new Integer(signal));
+    }
+    
+    
+    public int getBTDeviceNo()
+    {
+    	return btDeviceNo;
+    }
+    public BluetoothDevice getBluetoothDevice()
+    {
+    	return btDevice;
+    }
+    public boolean getIsUseless()
+    {
+    	return isUselessDevice;
+    }
+    public boolean getIsAllowed()
+    {
+    	return isAllowedDevice;
+    }
+    public boolean getIsCurrent()
+    {
+    	return isCurrentDevice;
+    }
+    public boolean getIsInScope()
+    {
+    	return inScope;
+    }
+    public String getEnter_time()
+    {
+    	return enter_time;
+    }
+    public String getLeave_time()
+    {
+    	return leave_time;
+    }
+    public int getBTMajorDeviceClass()
+    {
+    	return btMajorDeviceClass;
+    }
+    public double getMaxDistance() //5.23
+    {
+    	double distance_max = (0.0033 * btRSSI_Min * btRSSI_Min) + (0.189 * btRSSI_Min) + 2.835;
+    	return distance_max;
+    }
+    public double getMinDistance() //5.23
+    {
+    	double distance_min = (0.0033 * btRSSI_Max * btRSSI_Max) + (0.189 * btRSSI_Max) + 2.835;
+    	return distance_min;
+    }
+    public void calculateAverageDistance() //5.23
+    {
+    	int sumRSSIValue = 0;
+    	double distance = 0;
+    	int RRSIValue = 0;
+    	for(int i = 0; i < btRSSIValues.size(); i++)
+    	{
+    		RRSIValue = btRSSIValues.get(i).intValue();
+    		distance = (0.0033 * RRSIValue * RRSIValue) + (0.189 * RRSIValue) + 2.835;
+    		sumRSSIValue += distance;
+    	}
+    	btAverage_Distance = sumRSSIValue/btRSSIValues.size();
+    }
+    public double getAverageDistance()
+    {
+    	return btAverage_Distance;
+    }
+}

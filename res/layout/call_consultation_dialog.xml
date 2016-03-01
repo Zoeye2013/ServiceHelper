@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:orientation="vertical">
+  <RelativeLayout android:layout_width="fill_parent"
+  		android:layout_height="wrap_content">
+    	<TextView android:id="@+id/call_record_info"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_alignParentLeft="true"
+  			android:layout_alignParentBottom="true"
+  			android:paddingLeft="5dp"></TextView>
+    	<Button android:id="@+id/button_answer_later"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:layout_alignParentRight="true"
+  			android:layout_alignParentBottom="true"
+  			android:layout_alignBottom="@id/call_record_info"
+  			android:text="@string/button_answer_later"></Button>
+  		<Button android:id="@+id/button_back"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_alignParentRight="true"
+  			android:layout_alignParentBottom="true"
+  			android:layout_alignBottom="@id/call_record_info"
+  			android:text="@string/button_back"></Button>
+  		<ListView android:id="@+id/singular_choice_list"
+    		android:layout_width="fill_parent"
+    		android:layout_height="wrap_content"
+    		android:layout_alignParentTop="true"
+    		android:layout_above="@id/button_back"
+    		android:layout_weight="1"
+    		android:background="@android:color/black"
+    		android:cacheColorHint="#00000000"></ListView>
+  </RelativeLayout>
+</LinearLayout>

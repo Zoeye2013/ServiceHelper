@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Real time data acquisition, the Department of Information Processing Science,
+     the University of Oulu, Finland.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    <TextView android:id="@+id/welcome_info"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:textSize="12sp"
+    	android:padding="5dp"
+    	android:text="@string/welcome"
+    ></TextView>
+    <!-- <ListView android:id="@+id/mice"
+    	android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"
+    	android:stackFromBottom="true"
+    	android:transcriptMode="alwaysScroll"
+    	android:layout_weight="2"
+    /> -->
+    <LinearLayout
+		android:layout_width="fill_parent" 
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:orientation="horizontal">
+		
+    	<fi.tol.android.RTDAReceiver.BTDeviceCanvas
+            android:id="@+id/bt_device_canvas"
+            android:layout_margin="5dp"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+        </fi.tol.android.RTDAReceiver.BTDeviceCanvas>
+    </LinearLayout>
+    
+    <LinearLayout
+    	android:orientation="horizontal"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	>
+    	<Button android:id="@+id/button_start"
+    		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:text="@string/start"
+    	></Button>
+    	<Button android:id="@+id/button_stop"
+    		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:text="@string/stop"
+    	></Button>
+    	<Button android:id="@+id/button_run"
+    		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:text="@string/run"
+    	></Button>
+    	<!-- <Button android:id="@+id/button_report"
+    		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:text="@string/report"
+    	></Button> -->
+    </LinearLayout>
+</LinearLayout>

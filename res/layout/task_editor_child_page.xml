@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:orientation="vertical">
+  <RelativeLayout android:layout_width="fill_parent"
+  	android:layout_height="wrap_content">
+  	<TextView android:id="@+id/subtask_warning"
+  		android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:textSize="16dp"
+  		android:layout_alignParentRight="true"
+  		android:paddingRight="10dp"></TextView>
+  	<TextView android:layout_width="fill_parent"
+  		android:layout_height="wrap_content"
+  		android:textSize="16dp"
+  		android:text="@string/change_subtask_title"
+  		android:layout_toLeftOf="@id/subtask_warning"
+  		android:layout_alignParentLeft="true"
+  		android:paddingLeft="10dp"></TextView>
+  </RelativeLayout>
+  <RelativeLayout android:layout_width="fill_parent"
+  	android:layout_height="wrap_content">
+  	<ImageButton android:id="@+id/delete_subtask_button"
+  		android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:scaleType="fitXY"
+  		android:layout_alignParentRight="true"
+  		android:layout_centerVertical="true"
+  		android:src="@drawable/del_task_button"
+  		android:background="@android:color/transparent"></ImageButton>
+  	<EditText android:id="@+id/subtask_title_edit"
+  		android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:textSize="18dp"
+  		android:layout_centerVertical="true"
+  		android:layout_alignParentLeft="true"
+  		android:layout_toLeftOf="@id/delete_subtask_button"
+  		android:selectAllOnFocus="true"></EditText>
+  </RelativeLayout>
+  
+  <RelativeLayout android:layout_width="fill_parent"
+  	android:layout_height="wrap_content">
+  	<Button android:id="@+id/save_child_change_button"
+  		android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:layout_alignParentRight="true"
+  		android:text="@string/button_save_pwd_change"
+  		android:focusable="true"><requestFocus /> </Button>
+  	<Button android:id="@+id/cancel_child_change_button"
+  		android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:layout_toLeftOf="@id/save_child_change_button"
+  		android:layout_alignBottom="@id/save_child_change_button"
+  		android:text="@string/cancel"></Button>
+  </RelativeLayout>
+</LinearLayout>

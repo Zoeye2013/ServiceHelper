@@ -1,0 +1,346 @@
+package fi.tol.android.RTDAReceiver;
+
+import java.io.File;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.app.Dialog;
+import android.bluetooth.*;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Bundle;
+import android.os.Environment;
+import android.telephony.TelephonyManager;
+import android.text.format.Time;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class RTDAReceiver extends Activity{
+	/** Components on the UI */
+	public static final int ON_OPEN_STATE = 1;
+	public static final int ON_START_STATE = 2;
+	public static final int ON_RUN_STATE = 3;
+	private int canvasState;
+	
+	private AlertDialog dialog;
+	//private Builder siteSelectingDialog;
+	private String[] sitesList;
+	
+	private Button btnStart;
+	private Button btnStop;
+	private Button btnRun;
+	//private Button btnReport;
+	private TextView textWelcomeInfo;
+	private BTDeviceCanvas btDevicesCanvas; //Self defined Canvas component to draw BT devices
+	
+	/** System Time*/
+	private Time time = new Time();
+    
+	/** Member classes, manage allowed devices list and recording*/
+	private DevicesManaging deviceMag;
+    
+    /** Bluetooth device detecting*/
+	private BTBroadcastReceiver btReceiver; //Listener for discovering a new BT device
+	private BluetoothAdapter localBTAdapter; //Local Bluetooth adapter
+	
+	/** Create folders in phone SDCard*/
+	public static final String appRootFolder = "RTDA";
+	public static final String appLogFolder = "Logs";
+	public static final String appAllowedFolder = "AllowedDevices";
+	public static final String allowedFileNameFalse = "AllowedDevices.txt";
+	private String selectedSite;
+	private String allowedFileName;
+	private String sdPath;
+	
+	static final int DIALOG_ID_SAVE = 0;
+	static final int DIALOG_ID_SELECT_SITE = 1;
+	
+	private Timer btDiscoveryDelayTimer = new Timer();
+	private TimerTask task = new TimerTask()
+    {
+    	public void run() 
+    	{
+    		localBTAdapter.startDiscovery();
+    	}
+    }; 
+	
+	
+	/** Called when the activity is first created. */
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        
+        Log.i("RTDA", "On Create");
+        
+        /** Initial members and UI components*/
+        initComponents();
+		
+        /** register Bluetooth BroadcastReceiver*/
+        IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+		registerReceiver(btReceiver, filter);
+		filter = new IntentFilter(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
+		registerReceiver(btReceiver, filter);
+		
+		
+		//localBTAdapter.startDiscovery();
+		btDiscoveryDelayTimer.schedule(task, 5000);
+		
+		/**start phone call listening service*/
+		//startService(new Intent(this,PhoneCallListenerService.class));
+    }
+    
+    /** Called after onCreate(). */
+    public void onStart()
+    {
+    	super.onStart();
+    	Log.i("RTDA", "On Start");
+    }
+    public void onResume()
+    {
+    	super.onResume();
+    	Log.i("RTDA","On Resume");
+    }
+    public void onPause()
+    {
+    	super.onPause();
+    	Log.i("RTDA","On Pause");
+    }
+    public void onDestroy()
+    {
+    	super.onDestroy();
+    	Log.i("RTDA", "On Destroy");
+    	btDiscoveryDelayTimer.cancel();
+    	unregisterReceiver(btReceiver);
+    	localBTAdapter.disable();
+    }
+    /** Initial members and UI components*/
+    public void initComponents()
+	{
+    	Log.i("RTDA", "call initComponents() function");
+    	openBTAdapter(); //Get local BT adapter and turn on Bluetooth
+    	
+    	time.setToNow(); //Get system time;
+    	canvasState = ON_OPEN_STATE;
+    	
+		textWelcomeInfo = (TextView) findViewById(R.id.welcome_info);
+		btDevicesCanvas = (BTDeviceCanvas) findViewById(R.id.bt_device_canvas);
+		btDevicesCanvas.setCanvasState(ON_OPEN_STATE);
+		
+		deviceMag = new DevicesManaging(localBTAdapter);
+		setWelcomeInfo();
+		
+		/**Create App Home folder and Logs folder*/
+		if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED))
+		{
+			sdPath = Environment.getExternalStorageDirectory() + "/";
+			String logSubFileName = sdPath + appRootFolder + "/" + appLogFolder +
+			"/" + time.year + "_" + (time.month+1) + "_" + time.monthDay;
+			if(!isFileExist(sdPath + appRootFolder))
+			{
+				Log.i("RTDA", "create App home folder");
+				File dir = new File(sdPath + appRootFolder);
+				dir.mkdir();
+				File logDir = new File(sdPath + appRootFolder + "/" + appLogFolder);
+				logDir.mkdir();
+				File allowedDir = new File(sdPath + appRootFolder + "/" + appAllowedFolder);
+				allowedDir.mkdir();
+			}
+			if(!isFileExist(logSubFileName))
+			{
+				File logSubDir = new File(logSubFileName);
+				logSubDir.mkdir();
+			}
+		}
+		
+		/**Click to start teaching BT devices*/
+		btnStart = (Button) findViewById(R.id.button_start);
+		this.btnStart.setOnClickListener(new OnClickListener(){
+			public void onClick(final View v)
+			{
+				Log.i("RTDA", "Start button is clicked");
+				canvasState = ON_START_STATE;
+				btDevicesCanvas.setCanvasState(ON_START_STATE);
+				deviceMag.setCanvasState(ON_START_STATE);
+				btReceiver.setCanvasState(ON_START_STATE);
+				btnStop.setEnabled(true);
+				btnRun.setEnabled(false);
+				//btnReport.setEnabled(false);
+				deviceMag.clearAllowedDevices();
+				localBTAdapter.cancelDiscovery();
+			}
+		});
+		
+		/**Click to stop teaching BT devices*/
+		btnStop = (Button) findViewById(R.id.button_stop);
+		this.btnStop.setOnClickListener(new OnClickListener(){
+			public void onClick(final View v)
+			{
+				Log.i("RTDA", "Stop button is clicked");
+				btnStop.setEnabled(false);
+				if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED))
+				{
+					showDialog(DIALOG_ID_SAVE);
+				}
+				//localBTAdapter.cancelDiscovery();
+			}
+		});
+		btnStop.setEnabled(false);
+		
+		/**Click to recording routes*/
+		btnRun = (Button) findViewById(R.id.button_run);
+		this.btnRun.setOnClickListener(new OnClickListener(){
+			public void onClick(final View v)
+			{
+				Log.i("RTDA", "Run button is clicked");
+				
+				canvasState = ON_RUN_STATE;
+				btDevicesCanvas.setCanvasState(ON_RUN_STATE);
+				deviceMag.setCanvasState(ON_RUN_STATE);
+				btReceiver.setCanvasState(ON_RUN_STATE);
+				btnStart.setEnabled(true);
+				//btnReport.setEnabled(true);
+				btnStop.setEnabled(false);
+				
+				showDialog(DIALOG_ID_SELECT_SITE);
+				
+				deviceMag.setIsCurrentFalse();
+				deviceMag.setIsInScopeFalse();
+				localBTAdapter.cancelDiscovery();
+			}
+		});
+		if(deviceMag.isAnyAllowedDevices())
+		{
+			btnRun.setEnabled(true);
+		}
+		else
+		{
+			btnRun.setEnabled(false);
+		}
+		
+		/**Click to save records to .txt file*/
+		/*btnReport = (Button) findViewById(R.id.button_report);
+		this.btnReport.setOnClickListener(new OnClickListener(){
+			public void onClick(final View v)
+			{
+				Log.i("RTDA", "Report button is clicked");
+				//newThread = null;
+			}
+		});
+		btnReport.setEnabled(false);*/
+		
+		/** Bluetooth BroadcastReceiver*/
+		btReceiver = new BTBroadcastReceiver(deviceMag, btDevicesCanvas, localBTAdapter);
+		//phoneReceiver = new PhoneStateReceiver();
+	}
+    
+    /**Set welcome information in the UI*/
+    public void setWelcomeInfo()
+	{
+    	Log.i("RTDA", "set welcome information");
+    	String welInfo = "Welcome, Today is: " + time.monthDay + "/" +
+    		(time.month + 1) + "/" + time.year + "!";
+		textWelcomeInfo.setText(welInfo);
+	}
+    
+    /**Get local BT adapter and turn on Bluetooth*/
+    public void openBTAdapter()
+	{
+		Log.i("INFO", "open Bluetooth Device Adapter.");
+    	localBTAdapter = BluetoothAdapter.getDefaultAdapter();
+    	if (localBTAdapter == null)
+		{
+    		Toast.makeText(this, R.string.bt_not_available, Toast.LENGTH_LONG).show();
+            finish();
+            return;
+		}    	
+		if(!localBTAdapter.isEnabled())
+		{
+			localBTAdapter.enable();
+		}
+	}
+    
+    /** Check if files or directories exist*/
+    public boolean isFileExist(String fileName)
+	{
+    	Log.i("RTDA", "check is file exist");
+    	File logFile = new File(fileName);
+		return logFile.exists();
+	}
+    
+    protected Dialog onCreateDialog(int id, Bundle args) {
+    	LayoutInflater li = LayoutInflater.from(this);
+    	
+    	switch(id)
+    	{
+    		case DIALOG_ID_SAVE:
+    			final View dialogView = li.inflate(R.layout.savedialog, null);
+                final Button okButton = (Button) dialogView.findViewById(R.id.button_ok);
+                final EditText name = (EditText) dialogView.findViewById(R.id.name_editText);
+                final TextView warning = (TextView) dialogView.findViewById(R.id.warning_message);
+    		    
+                okButton.setOnClickListener(new View.OnClickListener() 
+                {
+                    public void onClick(View v) {
+                    	allowedFileName = name.getText().toString();
+                        File file = new File(sdPath + appRootFolder + "/" + appAllowedFolder + "/" + allowedFileName + ".txt");
+                        if(allowedFileName == null)
+                        {
+                        	warning.setText(R.string.null_warning);
+                        }
+                        else if (file.exists())
+                        {
+                        	warning.setText(R.string.exist_file_warning);
+                        }
+                        else
+                        {
+                        	deviceMag.writeAllowedDevicesFile(allowedFileName);
+            				if(deviceMag.isAnyAllowedDevices())
+            				{
+            					btnRun.setEnabled(true);
+            				}
+                        	removeDialog(DIALOG_ID_SAVE);
+                        }
+                    }
+                });
+                AlertDialog.Builder saveBuilder = new AlertDialog.Builder(this);
+                saveBuilder.setTitle(R.string.save_info);
+                saveBuilder.setView(dialogView);
+                dialog = saveBuilder.create();
+                break;
+    		case DIALOG_ID_SELECT_SITE:
+    			AlertDialog.Builder selectBuilder = new AlertDialog.Builder(this);
+    			File siteDir = new File(sdPath + appRootFolder + "/" + appAllowedFolder);
+				sitesList = siteDir.list();
+				selectBuilder.setTitle(R.string.select_allowed_device);
+				selectedSite = sitesList[0].toString();
+                selectBuilder.setSingleChoiceItems(sitesList, 0, new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int item) {
+						selectedSite = sitesList[item].toString();
+					}
+				});
+                selectBuilder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+					
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						deviceMag.readAllowedDevicesFile(selectedSite);
+					}
+				});
+                dialog = selectBuilder.create();
+                break;
+    	}
+    	return dialog;
+    }
+}

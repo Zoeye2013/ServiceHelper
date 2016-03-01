@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:orientation="vertical">
+  <RelativeLayout android:layout_width="fill_parent"
+  		android:layout_height="fill_parent">
+  		<TextView android:id="@+id/login_warning_username"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:paddingRight="5dp"></TextView>
+  		<TextView android:text="@string/username"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_toLeftOf="@id/login_warning_username"
+  			android:layout_alignParentLeft="true"
+  			android:layout_alignBottom="@id/login_warning_username"
+  			android:paddingLeft="5dp"></TextView>
+  		<EditText android:id="@+id/username_input"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:layout_below="@id/login_warning_username"
+  			android:inputType="textPersonName"></EditText>
+  			
+  		<TextView android:id="@+id/login_warning_password"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_below="@id/username_input"
+			android:paddingRight="5dp"></TextView>
+  		<TextView android:text="@string/password"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_toLeftOf="@id/login_warning_password"
+  			android:layout_alignParentLeft="true"
+  			android:layout_alignBottom="@id/login_warning_password"
+  			android:paddingLeft="5dp"></TextView>
+  		<EditText android:id="@+id/password_input"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:layout_below="@id/login_warning_password"
+  			android:inputType="textPassword"></EditText>
+	
+		<Button android:id="@+id/btn_register"
+			android:text="@string/button_register"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true"
+			android:layout_below="@id/password_input"></Button>
+		<Button android:id="@+id/btn_login"
+			android:text="@string/button_login"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_alignBottom="@id/btn_register"></Button>
+		<Button android:id="@+id/btn_cancel_login"
+			android:text="@string/button_cancel_login"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_toLeftOf="@id/btn_login"
+			android:layout_alignBottom="@id/btn_register"></Button>
+	</RelativeLayout>
+</LinearLayout>

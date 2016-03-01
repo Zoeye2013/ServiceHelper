@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:orientation="vertical">
+ <RelativeLayout android:layout_width="fill_parent"
+  		android:layout_height="fill_parent">
+  		<TextView android:id="@+id/warning_username"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_alignParentRight="true"
+  			android:paddingRight="5dp"></TextView>
+  		<TextView android:text="@string/username"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_toLeftOf="@id/warning_username"
+  			android:layout_alignParentLeft="true"
+  			android:layout_alignBottom="@id/warning_username"
+  			android:paddingLeft="5dp"></TextView>
+  		<EditText android:id="@+id/register_user_name"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:layout_below="@id/warning_username"
+  			android:inputType="textPersonName"></EditText>
+  		
+  		<TextView android:id="@+id/warning_password"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_alignParentRight="true"
+  			android:layout_below="@id/register_user_name"
+  			android:paddingRight="5dp"></TextView>
+  		<TextView android:text="@string/password"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_toLeftOf="@id/warning_password"
+  			android:layout_alignParentLeft="true"
+  			android:layout_alignBottom="@id/warning_password"
+  			android:paddingLeft="5dp"></TextView>
+  		<EditText android:id="@+id/register_password"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:layout_below="@id/warning_password"
+  			android:inputType="textPassword"></EditText>
+  			
+  		<TextView android:id="@+id/warning_re_password"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_alignParentRight="true"
+  			android:layout_below="@id/register_password"
+  			android:paddingRight="5dp"></TextView>
+  		<TextView android:text="@string/re_password"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_toLeftOf="@id/warning_re_password"
+  			android:layout_alignParentLeft="true"
+  			android:layout_alignBottom="@id/warning_re_password"
+  			android:paddingLeft="5dp"></TextView>
+  		<EditText android:id="@+id/register_re_password"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:layout_below="@id/warning_re_password"
+  			android:inputType="textPassword"></EditText>
+  		
+  		<Button android:id="@+id/btn_register_and_login"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:text="@string/button_register_and_login"
+  			android:layout_below="@id/register_re_password"
+  			android:layout_centerInParent="true"></Button>
+  </RelativeLayout>
+</LinearLayout>

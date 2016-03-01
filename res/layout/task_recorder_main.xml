@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+  <ViewFlipper   
+    android:layout_height="wrap_content"  
+    android:layout_width="fill_parent"
+    android:id="@+id/tast_recorder_viewflipper">  
+    <include android:id="@+id/initialview" layout="@layout/task_recorder_init_view"/>  
+    <include android:id="@+id/task_listview" layout="@layout/task_recorder_tasklist_view"/>  
+  </ViewFlipper>  
+</LinearLayout>

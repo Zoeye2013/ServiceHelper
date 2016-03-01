@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+ *  Open Source Software By Elinkeinoelämän Tutkimuslaitos (ETLA), Finland
+ *  Coding by Ye Zhang
+ *  
+ *  XML file for PingII(incoming) module
+ *  Flipper view of initial question 
+ *  Radio buttons'Yes' or 'No' to choose
+ *  Or user can record the phone call information later by Button'record_later_btn'
+ *
+-->
+
+<RelativeLayout 
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content">
+  	<TextView android:id="@+id/question_title"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:text="@string/init_question_title"
+  			android:layout_centerHorizontal="true"
+  			android:paddingLeft="10dp"
+  			android:textColor="#ffff00"
+  			android:textSize="24dp"
+  			android:paddingBottom="20dp"></TextView>
+  	<TextView android:id="@+id/call_info"
+  			android:layout_alignParentLeft="true"
+  			android:paddingLeft="10dp"
+  			android:layout_below="@id/question_title"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:textSize="18dp"
+  			android:paddingBottom="20dp"></TextView>
+  	<RadioGroup android:id="@+id/radio_group"
+  		android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:layout_below="@id/call_info"
+  		android:layout_centerHorizontal="true"
+  		android:orientation="horizontal"
+  		android:paddingBottom="30dp">
+  		<RadioButton android:id="@+id/yes_radio_btn"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_marginRight="30dp"
+  			android:text="Yes"></RadioButton>
+  		<RadioButton android:id="@+id/no_radio_btn"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_marginLeft = "30dp"
+  			android:text="No"></RadioButton>
+  	</RadioGroup>
+  	<Button android:id="@+id/record_later_btn"
+  		android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:layout_below="@id/radio_group"
+  		android:layout_alignParentLeft="true"
+  		android:text="@string/record_later_btn_text"></Button>
+</RelativeLayout>

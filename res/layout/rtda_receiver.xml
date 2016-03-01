@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Real time data acquisition, the Department of Information Processing Science,
+     the University of Oulu, Finland.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <TextView android:id="@+id/welcome_info"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:paddingBottom="10dp"
+    	android:text="@string/welcome"></TextView>
+    <TextView android:id="@+id/state_info"
+  			android:layout_centerHorizontal="true"
+  			android:layout_below="@id/welcome_info"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:textColor="#ffff00"
+  			android:text="@string/welcome"
+  			android:textSize="24dp"
+  			android:paddingBottom="10dp"></TextView>
+    <RelativeLayout android:id="@+id/buttons"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_alignParentBottom="true"
+    	android:paddingBottom="10dp">
+    	<Button android:id="@+id/button_start"
+    		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:text="@string/start_training"></Button>
+    	<Button android:id="@+id/button_run"
+    		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:layout_toRightOf="@id/button_start"
+    		android:text="@string/start_measurment"></Button>
+    	<!--  <Button android:id="@+id/button_do_in_background"
+    		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:layout_alignParentRight="true"
+    		android:text="@string/run_in_background"></Button>-->
+   	</RelativeLayout>
+    <LinearLayout
+		android:layout_width="fill_parent" 
+		android:layout_height="0dp"
+		android:orientation="horizontal"
+		android:layout_below="@id/state_info"
+		android:layout_above="@id/buttons">
+		
+    	<fi.tol.android.RTDAReceiver.BTDeviceCanvas
+            android:id="@+id/bt_device_canvas"
+            android:layout_margin="5dp"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+        </fi.tol.android.RTDAReceiver.BTDeviceCanvas>
+    </LinearLayout>
+</RelativeLayout>

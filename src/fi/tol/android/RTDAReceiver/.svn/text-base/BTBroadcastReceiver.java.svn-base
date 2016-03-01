@@ -1,0 +1,86 @@
+package fi.tol.android.RTDAReceiver;
+
+import android.app.ActivityManager;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.content.BroadcastReceiver;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.telephony.TelephonyManager;
+import android.text.format.Time;
+import android.util.Log;
+
+public class BTBroadcastReceiver extends BroadcastReceiver{
+	
+	private int canvasState = RTDAReceiver.ON_OPEN_STATE;
+	private DevicesManaging deviceMag;
+	private BTDeviceCanvas btDevicesCanvas;
+	private BluetoothAdapter localBTAdapter;
+	
+	public BTBroadcastReceiver (DevicesManaging manage, BTDeviceCanvas canvas, BluetoothAdapter adapter)
+	{
+		deviceMag = manage;
+		btDevicesCanvas = canvas;
+		localBTAdapter = adapter;
+	}
+	/*public BTBroadcastReceiver ()
+	{
+		Log.i("Broadcast", "Broadcast Receiver created");
+	}*/
+	
+	@Override
+	public void onReceive(Context context, Intent intent) {
+		// TODO Auto-generated method stub
+		Log.i("RTDA", "Bluetooth Broadcast on receive");
+		String action = intent.getAction();
+		
+		/** When discover a BT device*/
+		if (BluetoothDevice.ACTION_FOUND.equals(action))
+		{
+			Log.i("RTDA", "find Bluetooth device");
+			BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+			short btRSSI = intent.getShortExtra(BluetoothDevice.EXTRA_RSSI, Short.MIN_VALUE);//5.23
+			//test
+			Log.i("RSSI", Integer.toString(btRSSI));
+			
+			switch(canvasState)
+			{
+			case RTDAReceiver.ON_OPEN_STATE: //Open the application, it's in open state
+				deviceMag.addUselessDevice(device);
+				break;
+			case RTDAReceiver.ON_START_STATE: //Start teaching BT device
+				deviceMag.addAllowedDevice(device);
+				break;
+			case RTDAReceiver.ON_RUN_STATE: //Recording routes
+				deviceMag.recordEnterTime(device, btRSSI);
+				break;
+			}
+			deviceMag.printList();//testing
+			btDevicesCanvas.setBTDevicesList(deviceMag.returnDevicesList());
+			btDevicesCanvas.invalidate();
+		}
+		
+		/** One discovery is finished*/
+		else if(BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action))
+		{
+			Log.i("RTDA", "Bluetooth inquiry finished");
+			deviceMag.checkIsInScope();//all suitable
+			if(canvasState == RTDAReceiver.ON_RUN_STATE)
+			{
+				deviceMag.recordLeaveTime();
+			}
+			deviceMag.printList();//testing
+			btDevicesCanvas.setBTDevicesList(deviceMag.returnDevicesList());
+			btDevicesCanvas.invalidate();
+			deviceMag.setIsCurrentFalse();
+			localBTAdapter.startDiscovery();
+		}
+	}
+	
+	public void setCanvasState(int state)
+    {
+    	canvasState = state;
+    }
+
+}

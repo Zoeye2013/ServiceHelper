@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+  <TextView android:id="@+id/task_started"
+  			android:layout_centerHorizontal="true"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:text="@string/task_started"
+  			android:textColor="#ffff00"
+  			android:textSize="24dp"></TextView>
+  <TextView android:id="@+id/task_started_info"
+  			android:layout_centerHorizontal="true"
+  			android:layout_below="@id/task_started"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:textSize="18dp"
+  			android:text="@string/finish_task_title"></TextView>
+  <ListView android:id="@+id/tasks_list"
+    		android:layout_width="fill_parent"
+    		android:layout_height="wrap_content"
+    		android:layout_below="@id/task_started_info"
+    		android:paddingTop = "15dp"
+    		android:layout_centerInParent="true"
+    		android:cacheColorHint="#00000000"></ListView>
+    		<!-- android:background="@android:color/black" -->
+</RelativeLayout>

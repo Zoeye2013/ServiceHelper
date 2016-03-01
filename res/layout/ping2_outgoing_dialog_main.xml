@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+ *  Open Source Software By Elinkeinoelämän Tutkimuslaitos (ETLA), Finland
+ *  Coding by Ye Zhang
+ *  
+ *  XML file for PingII(outgoing) module
+ *  defines the popup dialog after user made an outgoing phone call
+ *  Flipper View contains two views, first view ask the type of outgoing phone call
+ *  then shows the second view, and the contents of second view have slightly differences
+ *  depends on the type of outgoing phone call.
+-->
+
+<ViewFlipper 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"  
+    android:layout_width="fill_parent"  
+    android:id="@+id/ping2_outgoing_dialog">
+    <include android:id="@+id/first_view" layout="@layout/ping2_outgoing_dialog_first_view"/>  
+    <include android:id="@+id/second_view" layout="@layout/ping2_outgoing_dialog_second_view"/>
+</ViewFlipper>

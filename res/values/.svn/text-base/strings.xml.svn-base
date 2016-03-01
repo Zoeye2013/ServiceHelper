@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!-- Real time data acquisition, the Department of Information Processing Science,
+     the University of Oulu, Finland.
+-->
+<resources>
+    <string name="app_name">RTDA Receiver</string>
+    
+    <!-- maim.xml -->
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="run">Run</string>
+    <string name="report">Report</string>
+    <string name="welcome">Welcome, Today is: </string>
+    <string name="bt_not_available">Bluetooth is not available!</string>
+    <string name="bt_not_enable">Bluetooth is not enable!</string>
+    
+    <!-- dialog.xml -->
+    <string name="save_info">Please enter the site name:</string>
+    <string name="select_allowed_device">Please choose the testing site:</string>
+    <string name="ok">OK</string>
+    <string name="null_warning">Site name is null,please reenter!</string>
+    <string name="exist_file_warning">Site name existed,please type another name!</string>
+    
+    
+    <!-- callconsultationdialog.xml -->
+    <string name="is_emergency_call">Is it an emergency call?</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    
+    <!-- folders -->
+    <string name="app_root_folder">RTDA</string>
+</resources>

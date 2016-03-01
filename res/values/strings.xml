@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!-- Real time data acquisition, the Department of Information Processing Science,
+     the University of Oulu, Finland.
+-->
+<resources>
+    <string name="app_name">PalveluApu</string>
+    
+    <!-- rtda_receiver.xml -->
+    <string name="start_training">Kouluta</string>
+    <string name="stop_training">Valmis</string>
+    <string name="start_measurment">Aloita mittaaminen</string>
+    <string name="state_info_nothing">Ole joutokäynnillä...</string>
+    <string name="state_info_training">Ole kouluttamassa...</string>
+    <string name="state_info_measuring">Ole mittaamassa...</string>
+    <string name="stop_measurment">Lopeta</string>
+    <string name="welcome">Tervetuloa, tänään on: </string>
+    <string name="bt_not_available">Bluetooth ei ole saadavissa!</string>
+    <string name="bt_not_enable">Bluetooth on käyttökelvoton!</string>
+    <string name="run_in_background">Tehdään töitä taka-alalla</string>
+    <string name="to_enable_gps">Activoi GPS!</string>
+    <string name="gps_disabled">GPS on käyttäkelvoton, ei voi kerätä GPS data.</string>
+    <string name="network_disabled">Ei ole netti-yhteystä, ei voi kerätä netti data.</string>
+    
+    <!-- dialog.xml -->
+    <string name="save_info">Syötä paikan nimi:</string>
+    <string name="select_allowed_device">Valitse paikka mitataan:</string>
+    <string name="no_allowed_device">Sallittu laitteita ei löydy.</string>
+    <string name="ok">OK</string>
+    <string name="null_warning">Syötä paikan nimi!</string>
+    <string name="exist_file_warning">Paikan nimi on varattu, valitse toinen!</string>
+    <string name="select_share_file">Valitse jakaminen kohde:</string>
+    <string name="no_share_file">Jakaminen tiedosto ei löydy</string>
+    <string name="select_all">Kaikki</string>
+    <string name="share">Jaa</string>
+    <string name="scan_more_device">Lisää laitetta</string>
+    <string name="cancel">Peruuta</string>
+    <string name="no_selection_warning">Et ole valinnut mitään tiedostoja.</string>
+    <string name="select_receive_device">Valitse vastaanotto laite:</string>
+    <string name="no_receiver_selected">Et ole valinnut mitään vastaanotto laitteita</string>
+    <string name="send">Send</string>
+    <string name="title_paired_devices">Parilliset laitteet</string>
+    <string name="title_more_devices">Laitteet saatavissa</string>
+    <string name="no_paried_devices">Parillinen laite ei löydy</string>
+    <string name="no_more_devices">Lisää Laitteita ei löydy</string>
+    <string name="scanning">Etsi lisää laitteita...</string>
+    <string name="select_device">Valitse yksi laite jakaa</string>
+    <string name="button_search">Lisää</string>
+    <string name="button_call">Soita</string>
+    <string name="button_clear">Tyhjennä</string>
+    
+    <!-- callconsultationdialog.xml -->
+    <string name="question_from_area">Milta alueelta soitto tuli?</string>
+    <string name="question_from_unit">Mistä yksiköstä?</string>
+    <string name="question_direct_to_where">Minne potilas ohjattu?</string>
+    <string name="question_professional_level">Mikä on soittajan ammatillisen taso?</string>
+    <string name="question_appropriate">Onko soitto asianmukainen?</string>
+    <string name="button_back">Peruuta</string>
+    <string name="button_answer_later">Vastaa myöhemmin</string>
+    
+    <string name="phone_call_list_title">Täydennä seuraavia puheluja:</string>
+    <string name="missed_call_list_title">Vastaamattomat puhelut:</string>
+    <string name="no_missed_call">Ei ole vastaamatonta puhelua!</string>
+    <string name="incoming_call">Tuleva</string>
+    <string name="missed_call">Vastaamaton</string>
+    <string name="outgoing_call">Lähtevä</string>
+    <string name="unknow_contact">Tuntematon</string>
+    
+    <string name="no_questionnaire">Kysely ei löydy, tallenna puhelu suoraan tiedostoon.</string>
+    
+    <!-- notification-->
+    <string name="notification_scroll">Puhelut odottavat täydentää!</string>
+    <string name="notification_title">Keskeneräiset puhelut</string>
+    <string name="call_record_update_action">UPDATE_PHONECALL_LIST</string>
+    <string name="no_call_records">Ei keskeneräistä nauhoitusta!</string>
+    
+    <!-- folders -->
+    <string name="folder_rtda_receiver">RTDA</string>
+    
+    <!-- main_login.xml & register_new_user.xml -->
+    <string name="login_title">Kirjaudu sisään:</string>
+    <string name="username">Käyttäjätunnus:</string>
+    <string name="password">Salasana:</string>
+    <string name="button_register">Rekisteröidy</string>
+    <string name="button_login">Kirjaudu sisään</string>
+    <string name="button_cancel_login">Peruuta</string>
+    <string name="user_not_exist">Käyttäjätunnusta ei löydy!</string>
+    <string name="password_wrong">Salasana on väärä!</string>
+    
+    <string name="re_password">Salasana uudestaan:</string>
+    <string name="button_register_and_login">Registeröidy</string>
+    <string name="register_title">Registeröidy:</string>
+    <string name="username_ok">Käyttäjätunnus OK!</string>
+    <string name="username_exist">Käyttäjänimi on varattu!</string>
+    <string name="username_null">Käyttäjätunnus on tyhjä!</string>
+    <string name="password_null">Salasana on tyhjä!</string>
+    <string name="password_short">Vähintään 6 kirjainta!</string>
+    <string name="password_dismatch">Salasanat eivät täsmää!</string>
+    <string name="password_ok">Salasana OK!</string>
+    <string name="sdcard_is_not_available">Puhulimen SD-kortti ei ole saatavissa,\nei voi tallenna data!</string>
+    
+    <!-- main_page -->
+    <string name="preference">Asetukset</string>
+    <string name="account">Tilit</string>
+    <string name="RTDA_icon">Työnkulku</string>
+    <string name="Ping_I_icon">Puhelun Kysely</string>
+    <string name="Ping_II_incoming_icon">Puhelun Muistio (tuleva)</string>
+    <string name="Ping_II_outgoing_icon">Puhelun Muistio (lähtevä)</string>
+    <string name="meeting_time_recorder_icon">Ajan Mittaaminen</string>
+    <string name="exchange_by_knock_icon">Dadan vaihtaminen</string>
+    <string name="task_recorder_icon">Tehtävien Mittaaminen</string>
+    <string name="menu_log_out">Kirjaudu ulos</string>
+    <string name="whether_edit_questionnaire">Puhelun kysely on käytössä, muokkaatko kyselyä?</string>
+    
+    <!-- keys for preferences -->
+    <string name="RTDA_key">process_measurement</string>
+    <string name="Ping_I_key">emergency_calls_recorder</string>
+    <string name="Ping_II_incoming_key">incoming_calls_recorder</string>
+    <string name="Ping_II_outgoing_key">outgoing_calls_recorder</string>
+    <string name="meeting_time_recorder_key">meeting_time_recorder</string>
+    <string name="exchange_by_knock_key">exchange_by_knock</string>
+    <string name="task_recorder_key">task_recorder</string>
+    
+    <!-- account_info_page -->
+    <string name="button_change_password">Vaihda salasana</string>
+    <string name="old_password">Vanha salasana:</string>
+    <string name="new_password">Uusi salasana:</string>
+    <string name="re_new_password">salasana uudestaan:</string>
+    <string name="button_save_pwd_change">Tallenna</string>
+    <string name="button_delete_account">Poista tili</string>
+    
+    <!-- exchange by knock -->
+    <string name="i_am_server_info">Toimi nyt serverina!</string>
+    <string name="i_am_client_info">Toimi nyt asiakasohjelmana!</string>
+    <string name="excahnge_data_instruction">To update data to server, tap me and server face-to-face and then apart us</string>
+    <string name="waiting_for_client_to_connect">Odota asiakasohjelma ottaa yhteyttä...\n</string>
+    <string name="waiting_to_connect_to_server">Yhdistä serveriin...</string>
+    <string name="discoverable_info">On havaittavissa seuraava</string>
+    <string name="connect_to_client">On yhdistetty asiakasohjelmaan:</string>
+    <string name="connect_to_server">On yhdistetty serveriin:</string>
+    <string name="content_description_for_exchange_data_image">Vaihta data</string>
+    <string name="enable_discoverability">Activoi serverin löydettävyys</string>
+    <string name="not_discoverable">Käyttäja ei activoinut löydettävyys</string>
+    <string name="progress_dialog_connecting_tile">Yhdistä</string>
+    <string name="progress_dialog_connecting_info">Tunnista ja yhdistä serveriin...</string>
+    <string name="progress_dialog_transfering_tile">Siirrä Data</string>
+    <string name="progress_dialog_transfering_info">Data on siirtymässä...</string>
+	<string name="synchronize_btn">Synkronoi</string>
+	<string name="no_file_to_update">Ei oo tiedosto päivittää</string>
+	<string name="bt_connection_lost">Bluetooth yhteys katkeaa</string>
+	<string name="stop_connection">Tiedoston siirtyminen on valmis, katkaise yhteys.</string>
+	<string name="cannot_recognize_server">Ei voi tunnista serveria</string>
+	<string name="server_no_enabled_modules">Server did not enable any modules\nData synchronize finnished</string>
+    
+    <!-- task recorder -->
+    <string name="turn_right">Please turn phone 90 degrees right</string>
+    <string name="turn_left">then turn phone 90 degrees left back</string>
+    <string name="start_task">Start Recording A Task</string>
+    <string name="task_started">A task is started at </string>
+    <string name="finish_task_title">Choose the task when you finish</string>
+    <string name="finish_task_button">Done</string>
+    <string name="swing_tennis_racket">Please swing the phone twice\nlike swing the tennis racket</string>
+    <string name="back_to_main_page">Back to Main Page</string>
+    <string name="exit_task_recorder">Exit Task Recorder</string>
+    <string name="edit_task">Edit Tasks</string>
+    <string name="alert_have_a_task_started">You have started a task, do you want to exit?</string>
+    <string name="exit_without_saving">Exit without saving</string>
+    <string name="button_add_task">Lisää+</string>
+    <string name="edittext_add_new_task">Add a new task</string>
+    <string name="edittext_add_subtask">Add sub-task</string>
+    <string name="task_added">A task is added!</string>
+    <string name="subtask_added">A sub task is added!</string>
+    <item name="group_tag_key" type="id"/>
+	<item name="child_tag_key" type="id"/>
+	<string name="group_page_title">Task Info</string>
+	<string name="sub_tasks">Sub Tasks:</string>
+	<string name="change_task_title">Rename task</string>
+	<string name="change_subtask_title">Rename sub-task</string>
+	<string name="sure_to_delete">Are you sure to delete this task?</string>
+	<string name="task_deleted">Task has been deleted!</string>
+	<string name="empty_title_warning">Task is empty</string>
+	<string name="tasklist_is_saved">Tasks List is saved</string>
+	
+	<!-- Question Editor -->
+	<string name="rename_question_title">Nimeä uudelleen kysymys</string>
+	<string name="add_answers">Lisää vastauksia:</string>
+	<string name="answer_title">Vastaukset</string>
+	<string name="add_question_instruction">Syötä kysymys</string>
+	<string name="direct_to_question_no">Seuraava kysymys?</string>
+	<string name="add_answer_instruction">Lisää vastauksen</string>
+	<string name="to_question_no_instruction">Kysymyksen Num.</string>
+	<string name="edit_questionnaire_menu">Muokkaa kyselyä</string>
+	<string name="answer_added">Vastaus on lisännyt!</string>
+	<string name="question_editor_title">Kysymyksen Info</string>
+	<string name="question_editor_title_add_answers">Muokkaa kysymyksen vastauksia</string>
+	<string name="sure_to_delete_question">Oletko varma poistaa tämän kysymyksen?</string>
+	<string name="child_page_title">Vastauksen Info</string>
+	<string name="answer_deleted">Vastaus on poistanut!</string>
+	<string name="question_deleted">Kysymys on poistanut!</string>
+	<string name="empty_question_warning">Kysymys on tyhjä</string>
+	<string name="empty_answer_warning">Vastaus on tyhjä</string>
+	<string name="empty_direct_to_warning">Seuraava kysymys on tyhjä</string>
+	<string name="check_null_direct_alert">Tarkista seuraavan kysymyksen Num.</string>
+	<string name="questionnaire_is_saved">Kysely on tallennettu!</string>
+	<string name="content_description_for_delete_image_btn">Poista kysymys</string>
+	
+	<!-- PingII(incoming) Moduel -->
+	<string name="record_later_btn_text">Vastaa myöhemmin</string>
+	<string name="init_question_title">Onko puhelu asianomainen?</string>
+	<string name="incoming_call_info_title">Tuleva puhelu info:</string>
+	<string name="enter_notes_instruction">Syötä puhelun muistiinpanoa:</string>
+	<string name="irrelevant_call_title">Asiattoman puhelun info:</string>
+	<string name="question_title_caller">Soittaja:</string>
+	<string name="where_to_call_text">Mille hän pitäisi soittaa?</string>
+	<string name="relevant_call_saved">asianomainen puhelu on tallentanut!</string>
+	<string name="irrelevant_call_saved">Asiaton puhelu on tallentanut!</string>
+	
+	<!-- PingII(outgoing) Module -->
+	<string name="call_type_report">Raportti soitto</string>
+	<string name="call_type_emergency">Hätä soitto</string>
+	<string name="call_type_continuum">Tarkista jatkumo hoito</string>
+	<string name="call_type_other">Muut</string>
+	<string name="whether_things_solved_text">Onko asia ratkaistu?</string>
+	<string name="patient_text">Potilaalle:</string>
+	<string name="no">Ei</string>
+	<string name="yes">Kyllä</string>
+	<string name="outgoing_call_info_title">Lähtevä puhelu info:</string>
+	<string name="choose_call_type_instruction">Valitse puhelun tyyppi:</string>
+	<string name="outgoing_call_saved">Lähtevä puhelu on tallentanut!</string>
+	<string name="to_whom_text">Kenelle:</string>
+	
+	
+	
+	<!--  BluetoothSyncronize -->
+    <string name="not_connected">You are not connected to a device</string>
+    <string name="bt_not_enabled_leaving">Bluetooth was not enabled. Leaving Bluetooth Chat.</string>
+    <string name="title_connecting">connecting...</string>
+    <string name="title_connected_to">connected to</string>
+    <string name="title_not_connected">not connected</string>
+
+    <!--  DeviceListActivity -->
+    <string name="none_paired">No devices have been paired</string>
+    <string name="none_found">No devices found</string>
+    <string name="title_other_devices">Other Available Devices</string>
+    <string name="button_scan">Scan for devices</string>
+
+    <!-- Options Menu -->
+    <string name="secure_connect">Connect a device - Secure</string>
+    <string name="insecure_connect">Connect a device - Insecure</string>
+    <string name="discoverable">Make discoverable</string>
+    
+    <!-- Meeting Time Recorder -->
+    <string name="timer_init_text">00:00:00</string>
+    <string name="start_btn">Käynnistä</string>
+    <string name="stop_btn">Pysäytä</string>
+    <string name="pause_btn">Pysähdy</string>
+    <string name="resume_btn">Jatku</string>
+    <string name="reset_btn">Nolla</string>
+    <string name="meeting_started">Uusi tapaaminen on alkanut!</string>
+    <string name="meeting_finished">Tapaaminen on loppunut!</string>
+    <string name="meeting_paused">Tapaaminen on pysähtynyt!</string>
+    <string name="meeting_continue">Tapaaminen jatkuu!</string>
+    <string name="meeting_time_saved">Tapaamisen aika on tallentanut!</string>
+</resources>

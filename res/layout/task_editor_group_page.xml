@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:orientation="vertical">
+  <RelativeLayout android:layout_width="fill_parent"
+  	android:layout_height="wrap_content">
+  	<TextView android:id="@+id/empty_rename_task_warning"
+  		android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:textSize="16dp"
+  		android:layout_alignParentRight="true"
+  		android:paddingRight="10dp"></TextView>
+  	<TextView android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:textSize="16dp"
+  		android:text="@string/change_task_title"
+  		android:layout_toLeftOf="@id/empty_rename_task_warning"
+  		android:layout_alignParentLeft="true"
+  		android:paddingLeft="10dp"></TextView>
+  </RelativeLayout>
+  <RelativeLayout android:layout_width="fill_parent"
+  	android:layout_height="wrap_content">
+  	<ImageButton android:id="@+id/delete_task_button"
+  		android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:scaleType="fitXY"
+  		android:layout_alignParentRight="true"
+  		android:layout_centerVertical="true"
+  		android:src="@drawable/del_task_button"
+  		android:background="@android:color/transparent"></ImageButton>
+  	<EditText android:id="@+id/task_title_edit"
+  		android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:textSize="18dp"
+  		android:layout_centerVertical="true"
+  		android:layout_alignParentLeft="true"
+  		android:layout_toLeftOf="@id/delete_task_button"
+  		android:selectAllOnFocus="true"></EditText>
+  </RelativeLayout>
+  <RelativeLayout  android:layout_width="fill_parent"
+  	android:layout_height="wrap_content">
+  	<TextView android:id="@+id/empty_subtask_warning"
+  		android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:textSize="16dp"
+  		android:layout_alignParentRight="true"
+  		android:paddingRight="10dp"></TextView>
+  	<TextView android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:textSize="16dp"
+  		android:text="@string/edittext_add_subtask"
+  		android:layout_toLeftOf="@id/empty_subtask_warning"
+  		android:layout_alignParentLeft="true"
+  		android:paddingLeft="10dp"></TextView>
+  </RelativeLayout>
+  <RelativeLayout android:layout_width="fill_parent"
+  	android:layout_height="wrap_content">
+  	<ImageButton android:id="@+id/add_childtask_button"
+  		android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:layout_alignParentRight="true"
+  		android:layout_centerVertical="true"
+  		android:scaleType="fitXY"
+  		android:src="@drawable/add_task_button"
+  		android:background="@android:color/transparent"></ImageButton>
+  	<EditText android:id="@+id/subtask_title_edit"
+  		android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:textSize="18dp"
+  		android:layout_alignParentLeft="true"
+  		android:layout_centerVertical="true"
+  		android:text="@string/edittext_add_subtask"
+  		android:layout_toLeftOf="@id/add_childtask_button"
+  		android:selectAllOnFocus="true"></EditText>
+  </RelativeLayout>
+  <TextView android:layout_width="fill_parent"
+  		android:layout_height="wrap_content"
+  		android:textSize="16dp"
+  		android:text="@string/sub_tasks"
+  		android:paddingLeft="10dp"></TextView>
+  <ListView android:id="@+id/subtask_list"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:paddingTop="10dp"
+    	android:paddingLeft="30dp"
+    	android:layout_weight="1"
+    	android:background="@android:color/white"
+    	android:cacheColorHint="@android:color/white">
+  </ListView>
+  <RelativeLayout android:layout_width="fill_parent"
+  	android:layout_height="wrap_content">
+  	<Button android:id="@+id/save_group_change_button"
+  		android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:layout_alignParentRight="true"
+  		android:text="@string/button_save_pwd_change"
+  		android:focusable="true"><requestFocus /> </Button>
+  	<Button android:id="@+id/cancel_group_change_button"
+  		android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:layout_toLeftOf="@id/save_group_change_button"
+  		android:layout_alignBottom="@id/save_group_change_button"
+  		android:text="@string/cancel"></Button>
+  </RelativeLayout>
+  
+</LinearLayout>

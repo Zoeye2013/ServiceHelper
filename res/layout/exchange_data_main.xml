@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_centerInParent="true"
+  android:layout_height="wrap_content">
+  		<TextView android:id="@+id/i_am_server_info"
+  			android:layout_centerHorizontal="true"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:text="@string/i_am_server_info"
+  			android:textColor="#ffff00"
+  			android:paddingTop="20dp"
+  			android:textSize="24dp"></TextView>
+  		<Button android:id="@+id/enable_discoverability_btn"
+  		    android:layout_width="wrap_content"
+  		    android:layout_height="wrap_content"
+  		    android:layout_centerHorizontal="true"
+  		    android:paddingTop="10dp"
+  		    android:text="@string/enable_discoverability"
+  		    android:layout_below="@id/i_am_server_info"/>
+  		<TextView android:id="@+id/exchange_data_instruction"
+  			android:layout_below="@id/enable_discoverability_btn"
+  			android:layout_centerHorizontal="true"
+  			android:paddingTop="20dp"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:text="@string/excahnge_data_instruction"
+  			android:textSize="18dp"></TextView>
+  		<ImageView android:id="@+id/exchange_data_figure"
+  		    android:contentDescription="@string/content_description_for_exchange_data_image"
+  			android:layout_centerHorizontal="true"
+  			android:layout_below="@id/exchange_data_instruction"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:src="@drawable/exchange_data"></ImageView>
+  		
+</RelativeLayout>

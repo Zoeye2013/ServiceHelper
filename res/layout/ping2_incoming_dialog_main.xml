@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+ *  Open Source Software By Elinkeinoelämän Tutkimuslaitos (ETLA), Finland
+ *  Coding by Ye Zhang
+ *  
+ *  XML file for PingII(incoming) module
+ *  defines the popup dialog after user answered an incoming phone call
+ *  Flipper View contains three views, initial view ask question'is it relevant call'
+ *  Is relevant, then show relevant_call_view
+ *  otherwise, show irrelevant_call_view
+ *
+-->
+
+  <ViewFlipper
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"  
+    android:layout_width="fill_parent"  
+    android:id="@+id/ping2_popup_dialog">  
+    <include android:id="@+id/init_question" layout="@layout/ping2_incoming_dialog_init_question"/>  
+    <include android:id="@+id/relevant_call_view" layout="@layout/ping2_incoming_dialog_relevant_call_view"/>
+    <include android:id="@+id/irrelevant_call_view" layout="@layout/ping2_incoming_dialog_irrelevant_call_view"/>  
+  </ViewFlipper>

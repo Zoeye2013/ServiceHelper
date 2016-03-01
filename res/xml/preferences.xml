@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceCategory android:title="Palvelut"
+	android:key="service_category">
+	<CheckBoxPreference android:summary="Prosessin mittaaminen" 
+		android:key="@string/RTDA_key" 
+		android:title="Työnkulku"></CheckBoxPreference>
+	<CheckBoxPreference android:key="@string/Ping_I_key"
+		android:title="Puhelun Kysely" 
+		android:summary="Vastaa kyselyyn puhelun jälkeen"></CheckBoxPreference>
+	<CheckBoxPreference android:summary="Tallenna tulevia puheluja muistiin" 
+		android:key="@string/Ping_II_incoming_key" 
+		android:title="Puhelumuistio (tuleva)"></CheckBoxPreference>
+	<CheckBoxPreference android:summary="Tallenna lähteviä puheluja muistiin" 
+		android:key="@string/Ping_II_outgoing_key"
+		android:title="Puhelumuistio (lähtevä)"></CheckBoxPreference>
+</PreferenceCategory>
+
+<PreferenceCategory android:title="Sovellukset" 
+	android:key="app_category">
+	<CheckBoxPreference android:title="Käyntien tallennuus" 
+		android:summary="mitataan käyntien kestot" 
+		android:key="@string/meeting_time_recorder_key"></CheckBoxPreference>
+	<CheckBoxPreference android:title="Datan vaihto"
+		android:summary="Siirtää dataa koputuksella"
+		android:key="@string/exchange_by_knock_key"></CheckBoxPreference>
+	<CheckBoxPreference android:title="Tehtävientallennuus"
+		android:summary="Mitataan tehtävien kestot"
+		android:key="@string/task_recorder_key"></CheckBoxPreference>
+</PreferenceCategory>
+
+</PreferenceScreen>

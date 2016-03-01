@@ -1,0 +1,14 @@
+eclipse.preferences.version=1
+encoding//src/fi/tol/android/RTDAReceiver/MainLogin.java=UTF-8
+encoding//src/fi/tol/android/RTDAReceiver/MainPage.java=UTF-8
+encoding//src/fi/tol/android/RTDAReceiver/PhoneCallConsultation.java=UTF-8
+encoding//src/fi/tol/android/RTDAReceiver/PhoneCallConsultationQuestionDialog.java=UTF-8
+encoding//src/fi/tol/android/RTDAReceiver/PhoneCallConsultationTabOne.java=UTF-8
+encoding//src/fi/tol/android/RTDAReceiver/PhoneCallListenerService.java=UTF-8
+encoding//src/fi/tol/android/RTDAReceiver/PingIIOutgoingMainPage.java=UTF-8
+encoding//src/fi/tol/android/RTDAReceiver/PingIIincomingMainPage.java=UTF-8
+encoding//src/fi/tol/android/RTDAReceiver/QuestionEditor.java=UTF-8
+encoding//src/fi/tol/android/RTDAReceiver/RTDAReceiver.java=UTF-8
+encoding//src/fi/tol/android/RTDAReceiver/RegisterDialog.java=UTF-8
+encoding//src/fi/tol/android/RTDAReceiver/SelectMeasureSiteDialog.java=UTF-8
+encoding//src/fi/tol/android/RTDAReceiver/TaskEditor.java=UTF-8

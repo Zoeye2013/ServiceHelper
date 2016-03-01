@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+ *  Open Source Software By Elinkeinoelämän Tutkimuslaitos (ETLA), Finland
+ *  Coding by Ye Zhang
+ *  
+ *  XML file for PingII(incoming) module
+ *  Flipper view of irrelevant phone call information 
+ *  Provides user ways to record information like where else should caller call and notes
+ *  EditTexts for accept user input
+ *  TextView presents basic phone call information
+ *
+-->
+
+<LinearLayout 
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:orientation="vertical">
+ 		<TextView android:id="@+id/whether_things_solved_text"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:textSize="18dp"
+  			android:text="@string/whether_things_solved_text"></TextView>
+ 		<LinearLayout android:layout_width="fill_parent"
+      		android:layout_height="1dp"
+      		android:background="@android:color/white"></LinearLayout>
+ 		<RadioGroup android:layout_width="fill_parent"
+  				android:layout_height="wrap_content"
+  				android:orientation="horizontal">
+  			<RadioButton android:id="@+id/yes_solved_btn"
+  				android:layout_width="wrap_content"
+  				android:layout_height="wrap_content"
+  				android:text="@string/yes"></RadioButton>
+  	  		<RadioButton android:id="@+id/not_solved_btn"
+  				android:layout_width="wrap_content"
+  				android:layout_height="wrap_content"
+  				android:text="@string/no"></RadioButton>
+  		</RadioGroup>
+  		<LinearLayout android:layout_width="fill_parent"
+      		android:layout_height="1dp"
+      		android:background="@android:color/white"></LinearLayout>
+  		<TextView android:id="@+id/patient_text"
+  			android:paddingTop="10dp"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:textSize="18dp"
+  			android:text="@string/patient_text"></TextView>
+ 		<EditText android:id="@+id/patient_edit"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:inputType="text"
+  			android:selectAllOnFocus="true"></EditText>
+ 		<TextView android:id="@+id/enter_note_instruction"
+  			android:paddingTop="10dp"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:textSize="18dp"
+  			android:text="@string/enter_notes_instruction"></TextView>
+  		<EditText android:id="@+id/enter_call_note_edit"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:inputType="text"
+  			android:lines="4"
+  			android:selectAllOnFocus="true"></EditText>
+  		<RelativeLayout android:layout_width="fill_parent"
+  		    android:layout_height="wrap_content">
+  	  		<Button android:id="@+id/save_btn"
+  				android:layout_width="wrap_content"	
+  				android:layout_height="wrap_content"
+  				android:layout_alignParentRight="true"
+  				android:text="@string/button_save_pwd_change"></Button>
+  		    <TextView android:id="@+id/call_info"
+  				android:layout_width="wrap_content"
+  				android:layout_height="wrap_content"
+  				android:layout_alignBottom="@id/save_btn"
+  				android:layout_alignParentLeft="true"
+  				android:paddingLeft="10dp"></TextView>
+  		</RelativeLayout>	
+</LinearLayout>

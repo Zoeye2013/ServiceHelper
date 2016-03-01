@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+  <TextView android:id="@+id/missed_call_list_info"
+  		android:layout_width="fill_parent"
+  		android:layout_height="wrap_content"
+  		android:padding="5dp"></TextView>
+  <ListView android:id="@+id/missed_phone_call_list"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_weight="1">
+  </ListView>
+  <RelativeLayout android:orientation="horizontal"
+  		android:layout_width="fill_parent"
+  		android:layout_height="wrap_content">
+  		<Button android:id="@+id/button_clear"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_alignParentRight="true"
+  			android:text="@string/button_clear"></Button>
+  		<Button android:id="@+id/button_call"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_toLeftOf="@id/button_call"
+  			android:text="@string/button_call"></Button>
+  		
+  </RelativeLayout>
+</LinearLayout>
